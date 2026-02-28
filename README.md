@@ -6,6 +6,8 @@ Official technical documentation for the **Renault Club Bulgaria** platform.
 
 **Live site:** https://ivelin1936.github.io/rcb-docusaurus/
 
+> **One-time setup:** Enable GitHub Pages at [repo Settings → Pages → Source → GitHub Actions](https://github.com/ivelin1936/rcb-docusaurus/settings/pages)
+
 ---
 
 ## Contents
