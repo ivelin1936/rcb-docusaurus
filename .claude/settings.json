@@ -1,0 +1,10 @@
+{
+  "description": "rcb-docusaurus — Docusaurus 3.x documentation site for Renault Club Bulgaria",
+  "agents": [
+    "@tech-writer",
+    "@frontend",
+    "@devops",
+    "@architect",
+    "@reviewer"
+  ]
+}

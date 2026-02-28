@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Production build
+build/
+
+# Docusaurus cache
+.docusaurus/
+
+# Generated files
+.cache-loader/
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo

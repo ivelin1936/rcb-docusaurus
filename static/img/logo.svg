@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <!-- Renault Club Bulgaria logo placeholder -->
+  <rect width="200" height="60" rx="4" fill="#1a1a1a"/>
+  <!-- Renault diamond shape -->
+  <polygon points="20,30 32,12 44,30 32,48" fill="#fcd434" stroke="#fcd434" stroke-width="1"/>
+  <polygon points="26,30 32,20 38,30 32,40" fill="#1a1a1a"/>
+  <!-- Text -->
+  <text x="55" y="22" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#fcd434">RENAULT CLUB</text>
+  <text x="55" y="40" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#ffffff">BULGARIA</text>
+</svg>

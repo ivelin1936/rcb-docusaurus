@@ -1,0 +1,205 @@
+/**
+ * Renault Club Bulgaria — Docusaurus Theme
+ * Brand: Renault Yellow (#fcd434) on Dark (#1a1a1a)
+ */
+
+:root {
+  /* Primary — Renault Yellow */
+  --ifm-color-primary: #fcd434;
+  --ifm-color-primary-dark: #f5c800;
+  --ifm-color-primary-darker: #e8bc00;
+  --ifm-color-primary-darkest: #c9a200;
+  --ifm-color-primary-light: #fdd84d;
+  --ifm-color-primary-lighter: #fddd66;
+  --ifm-color-primary-lightest: #fee799;
+
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f8f9fa;
+
+  --ifm-font-color-base: #1a1a1a;
+  --ifm-heading-color: #1a1a1a;
+  --ifm-font-color-secondary: #555;
+
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --ifm-font-family-monospace: 'Fira Code', 'SFMono-Regular', Consolas,
+    'Liberation Mono', Menlo, Courier, monospace;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.65;
+
+  --ifm-global-radius: 6px;
+  --ifm-code-font-size: 0.875em;
+
+  --ifm-navbar-background-color: #1a1a1a;
+  --ifm-navbar-link-color: #f0f0f0;
+  --ifm-navbar-link-hover-color: #fcd434;
+  --ifm-navbar-link-active-color: #fcd434;
+
+  --ifm-footer-background-color: #1a1a1a;
+  --ifm-footer-color: #ccc;
+  --ifm-footer-link-color: #ddd;
+  --ifm-footer-link-hover-color: #fcd434;
+  --ifm-footer-title-color: #fcd434;
+
+  --ifm-link-color: #c9a200;
+  --ifm-link-hover-color: #fcd434;
+
+  --ifm-menu-color-active: #c9a200;
+  --ifm-menu-color-background-active: rgba(252, 212, 52, 0.12);
+  --ifm-menu-color-background-hover: rgba(252, 212, 52, 0.06);
+}
+
+[data-theme='dark'] {
+  --ifm-background-color: #111;
+  --ifm-background-surface-color: #1a1a1a;
+
+  --ifm-font-color-base: #e8e8e8;
+  --ifm-heading-color: #f5f5f5;
+  --ifm-font-color-secondary: #aaa;
+
+  --ifm-navbar-background-color: #0d0d0d;
+  --ifm-navbar-link-color: #e8e8e8;
+  --ifm-navbar-shadow: 0 2px 8px rgba(0,0,0,0.5);
+
+  --ifm-sidebar-background: #1a1a1a;
+  --ifm-sidebar-border-color: #2a2a2a;
+
+  --ifm-card-background-color: #1a1a1a;
+  --ifm-card-border-color: #2a2a2a;
+
+  --ifm-code-background: #1e1e1e;
+  --ifm-pre-background: #1e1e1e;
+
+  --ifm-toc-border-color: #2a2a2a;
+  --ifm-toc-link-color: #aaa;
+
+  --ifm-color-primary: #fcd434;
+  --ifm-color-primary-dark: #f5c800;
+  --ifm-color-primary-darker: #e8bc00;
+  --ifm-color-primary-darkest: #c9a200;
+  --ifm-color-primary-light: #fdd84d;
+  --ifm-color-primary-lighter: #fddd66;
+  --ifm-color-primary-lightest: #fee799;
+
+  --ifm-link-color: #fcd434;
+  --ifm-link-hover-color: #fdd84d;
+
+  --ifm-menu-color-active: #fcd434;
+  --ifm-menu-color-background-active: rgba(252, 212, 52, 0.1);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Navbar */
+.navbar {
+  background-color: #1a1a1a;
+  border-bottom: 2px solid #fcd434;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.navbar__brand {
+  font-weight: 700;
+}
+
+.navbar__title {
+  color: #fcd434;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.navbar__item {
+  font-weight: 500;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #f5f5f5;
+}
+
+.hero__title {
+  font-weight: 800;
+  background: linear-gradient(135deg, #fcd434 0%, #fdd84d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero__subtitle {
+  color: #bbb;
+}
+
+/* Code block titles */
+div[class*='codeBlockTitle'] {
+  background: linear-gradient(90deg, #fcd434 0%, #f5c800 100%);
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* Table header */
+table thead {
+  background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+table thead tr th {
+  color: #fcd434;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+table tbody tr:hover {
+  background-color: rgba(252, 212, 52, 0.04);
+}
+
+/* Sidebar active indicator */
+.menu__link--active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 18px;
+  background-color: #fcd434;
+  border-radius: 0 2px 2px 0;
+}
+
+.menu__link--active {
+  position: relative;
+}
+
+/* Footer */
+.footer {
+  border-top: 2px solid #fcd434;
+}
+
+/* Pagination */
+.pagination-nav__link:hover {
+  border-color: #fcd434;
+  box-shadow: 0 4px 12px rgba(252, 212, 52, 0.2);
+}
+
+/* Admonitions */
+.admonition-tip {
+  border-left-color: #fcd434;
+  background: rgba(252, 212, 52, 0.06);
+}
+
+/* Announcement bar */
+div[class*='announcementBar'] {
+  background: linear-gradient(90deg, #fcd434 0%, #fdd84d 100%);
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 996px) {
+  :root {
+    --ifm-font-size-base: 15px;
+  }
+
+  .hero__title {
+    font-size: 2.25rem;
+  }
+}

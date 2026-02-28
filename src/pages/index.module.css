@@ -1,0 +1,41 @@
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.features {
+  padding: 4rem 0;
+}
+
+.featureCard {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  height: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.featureCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px rgba(252, 212, 52, 0.15);
+}
+
+.featureCard h3 a {
+  color: var(--ifm-heading-color);
+  text-decoration: none;
+}
+
+.featureCard h3 a:hover {
+  color: var(--ifm-color-primary);
+}

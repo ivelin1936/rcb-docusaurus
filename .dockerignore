@@ -1,0 +1,10 @@
+node_modules/
+build/
+.docusaurus/
+.git/
+.github/
+.claude/
+*.md
+!README.md
+.env
+.env.*
