@@ -22,6 +22,12 @@ const config: Config = {
     locales: ['en'],
   },
 
+  themes: ['@docusaurus/theme-mermaid'],
+
+  markdown: {
+    mermaid: true,
+  },
+
   presets: [
     [
       'classic',
@@ -72,6 +78,12 @@ const config: Config = {
           label: 'ADRs',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'deploymentSidebar',
+          position: 'left',
+          label: 'Deployment',
+        },
+        {
           href: 'https://github.com/ivelin1936/Renault-Club-Bulgaria',
           label: 'BE Repo',
           position: 'right',
@@ -92,6 +104,7 @@ const config: Config = {
             { label: 'Overview', to: '/docs/overview/architecture' },
             { label: 'BE Setup', to: '/docs/guides/be-setup' },
             { label: 'FE Setup', to: '/docs/guides/fe-setup' },
+            { label: 'Deployment', to: '/docs/deployment' },
           ],
         },
         {

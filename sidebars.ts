@@ -49,6 +49,26 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+
+  deploymentSidebar: [
+    {
+      type: 'category',
+      label: 'Deployment & Operations',
+      link: {
+        type: 'doc',
+        id: 'deployment/index',
+      },
+      items: [
+        'deployment/architecture-overview',
+        'deployment/vps-bootstrap',
+        'deployment/environment-config',
+        'deployment/github-actions-cicd',
+        'deployment/deploy-rollback',
+        'deployment/alertmanager-setup',
+        'deployment/slack-notifications',
+      ],
+    },
+  ],
 };
 
 export default sidebars;
