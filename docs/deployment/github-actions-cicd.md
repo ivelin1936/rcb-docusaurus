@@ -241,6 +241,88 @@ The BE workflow runs `advanced-security/maven-dependency-submission-action` afte
 
 ---
 
+## Story 018 — Security & E2E Jobs
+
+Story 018 added new CI jobs to the frontend pipeline and a standalone weekly security workflow to the backend.
+
+### FE CI — New `e2e` Job (between `lint-test-build` and `docker`)
+
+The frontend `ci.yml` now has a 3-job sequence:
+
+```
+lint-test-build → e2e → docker → deploy → slack
+```
+
+The `e2e` job runs Playwright end-to-end tests against the locally-started dev server. It runs only **Desktop Chrome** and **Phone (375px)** device projects to keep CI time under 5 minutes:
+
+```yaml
+e2e:
+  needs: lint-test-build
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    - run: npm ci
+    - run: npx playwright install chromium --with-deps
+    - name: Run E2E tests
+      run: npx playwright test --project="Desktop Chrome" --project="Phone (375px)"
+      env:
+        PLAYWRIGHT_BASE_URL: http://localhost:5173
+        KEYCLOAK_URL: http://localhost:8180
+        KEYCLOAK_REALM: rcb
+        KEYCLOAK_CLIENT_ID: rcb-frontend-test
+        TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+        TEST_ADMIN_PASSWORD: ${{ secrets.TEST_ADMIN_PASSWORD }}
+        TEST_MOD_PASSWORD: ${{ secrets.TEST_MOD_PASSWORD }}
+    - name: Upload Playwright HTML report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
+```
+
+**Docker job now requires both `lint-test-build` AND `e2e`:**
+
+```yaml
+docker:
+  needs: [lint-test-build, e2e]   # ← both must pass before image is built
+  ...
+```
+
+This means a failing E2E test blocks the Docker build and prevents deployment.
+
+### FE CI — Additional GitHub Secrets Required
+
+The following secrets must be added to the FE repo for E2E tests to authenticate via Keycloak:
+
+| Secret | Description |
+|--------|-------------|
+| `TEST_USER_PASSWORD` | Password for `testuser@rcb.bg` (regular member role) |
+| `TEST_ADMIN_PASSWORD` | Password for `testadmin@rcb.bg` (admin role) |
+| `TEST_MOD_PASSWORD` | Password for `testmod@rcb.bg` (moderator role) |
+
+### BE — New Weekly `security-scan.yml` Workflow
+
+A new standalone workflow file `.github/workflows/security-scan.yml` runs every Saturday at 02:00 UTC independently of the main `ci.yml` pipeline. It does not build or deploy anything — it only scans.
+
+The workflow has 4 parallel jobs:
+
+| Job | Tool | Fails On |
+|-----|------|----------|
+| `dependency-check` | OWASP Maven plugin | CVSS ≥ 9.0 in any dependency |
+| `npm-audit` | `npm audit` | Any `critical` npm vulnerability |
+| `zap-scan` | OWASP ZAP baseline | Any FAIL-configured alert in `.zap/rules.tsv` |
+| `security-headers` | `curl` + `grep` | Any required header missing from `/api/v1/home` |
+
+See [Weekly Security Scan](../security/weekly-security-scan) for the full workflow configuration.
+
+---
+
 ## Adding a New Service to CI/CD
 
 1. Add a Docker image build step with `docker/build-push-action`

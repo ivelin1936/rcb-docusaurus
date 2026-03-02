@@ -192,6 +192,81 @@ htpasswd -nb admin yourpassword
 
 ---
 
+## E2E Test Environment Variables
+
+These variables are used by the Playwright E2E test suite. They are set as GitHub Actions secrets in the FE repository and passed to the `e2e` job in `ci.yml`.
+
+```bash
+# ──────────────────────────────────────────────────────────────────
+# Playwright E2E
+# ──────────────────────────────────────────────────────────────────
+
+# If set, Playwright skips starting the dev server and connects to this URL.
+# Leave unset for local development (dev server auto-starts).
+# Set to remote URL for staging/production smoke tests.
+PLAYWRIGHT_BASE_URL=https://staging.rcb.bg
+
+# ──────────────────────────────────────────────────────────────────
+# Keycloak — used by auth.fixture.ts (ROPC token exchange)
+# ──────────────────────────────────────────────────────────────────
+KEYCLOAK_URL=http://localhost:8180          # Keycloak base URL
+KEYCLOAK_REALM=rcb                          # Keycloak realm
+KEYCLOAK_CLIENT_ID=rcb-frontend-test        # Test-only client (ROPC must be enabled)
+
+# ──────────────────────────────────────────────────────────────────
+# Test user credentials
+# These users must exist in the Keycloak realm with appropriate roles.
+# Store passwords as GitHub Actions secrets — never commit them.
+# ──────────────────────────────────────────────────────────────────
+TEST_USER_USERNAME=testuser@rcb.bg
+TEST_USER_PASSWORD=<secret>                 # GitHub secret: TEST_USER_PASSWORD
+
+TEST_ADMIN_USERNAME=testadmin@rcb.bg
+TEST_ADMIN_PASSWORD=<secret>                # GitHub secret: TEST_ADMIN_PASSWORD
+
+TEST_MOD_USERNAME=testmod@rcb.bg
+TEST_MOD_PASSWORD=<secret>                  # GitHub secret: TEST_MOD_PASSWORD
+```
+
+### E2E Variable Reference Table
+
+| Variable | Used By | Description |
+|----------|---------|-------------|
+| `PLAYWRIGHT_BASE_URL` | Playwright config (`playwright.config.ts`) | Override base URL; if unset, dev server starts automatically |
+| `KEYCLOAK_URL` | `e2e/fixtures/auth.fixture.ts` | Keycloak server base URL for ROPC token exchange |
+| `KEYCLOAK_REALM` | `e2e/fixtures/auth.fixture.ts` | Keycloak realm name |
+| `KEYCLOAK_CLIENT_ID` | `e2e/fixtures/auth.fixture.ts` | Test client ID — must have Direct Access Grants enabled |
+| `TEST_USER_PASSWORD` | `e2e/fixtures/auth.fixture.ts` | Password for regular member test user |
+| `TEST_ADMIN_PASSWORD` | `e2e/fixtures/auth.fixture.ts` | Password for admin test user |
+| `TEST_MOD_PASSWORD` | `e2e/fixtures/auth.fixture.ts` | Password for moderator test user |
+
+### Keycloak ROPC Setup
+
+The auth fixture uses the ROPC (Resource Owner Password Credentials) grant. This must be enabled on a **dedicated test client only**:
+
+1. Keycloak Admin Console → Realm `rcb` → Clients → `rcb-frontend-test`
+2. Settings → Direct Access Grants → **Enabled: ON**
+3. The production client `rcb-frontend` must have Direct Access Grants **disabled**
+
+---
+
+## NVD API Key (OWASP Dependency Check)
+
+The optional `NVD_API_KEY` speeds up the OWASP Dependency Check's NVD database download from 5–10 minutes to under 30 seconds in CI.
+
+```bash
+# ──────────────────────────────────────────────────────────────────
+# OWASP NVD API Key (optional)
+# Speeds up NVD database updates for dependency-check -Powasp
+# Register at: https://nvd.nist.gov/developers/request-an-api-key
+# ──────────────────────────────────────────────────────────────────
+NVD_API_KEY=<nvd-api-key>
+```
+
+Set this as a GitHub Actions secret (`NVD_API_KEY`) in the BE repository. Local development works without it — the first run will be slow while the NVD database is downloaded, but subsequent runs use the Maven local repository cache.
+
+---
+
 ## Secret Rotation
 
 When rotating a secret:

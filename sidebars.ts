@@ -69,6 +69,26 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+
+  securitySidebar: [
+    {
+      type: 'category',
+      label: 'Security & QA',
+      link: {
+        type: 'doc',
+        id: 'security/index',
+      },
+      items: [
+        'security/security-headers',
+        'security/owasp-dependency-check',
+        'security/load-testing',
+        'security/zap-scan',
+        'security/e2e-testing',
+        'security/migration-cutover',
+        'security/weekly-security-scan',
+      ],
+    },
+  ],
 };
 
 export default sidebars;
