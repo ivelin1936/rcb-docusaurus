@@ -1,0 +1,17 @@
+# CODEOWNERS — rcb-docusaurus
+#
+# Assigns required reviewers for different parts of the documentation repo.
+# GitHub enforces these rules when branch protection is enabled with
+# "Require review from Code Owners" (Settings > Branches > main > protection rules).
+#
+# Format: <path-pattern>   <github-handle>
+#
+# References:
+# - https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Architecture Decision Records — @architect MUST approve before merge
+# This is the ADR gate: no ADR can be merged without @architect review.
+docs/adr/   @ivelin1936
+
+# Global fallback — all files require @ivelin1936 review unless overridden above
+*   @ivelin1936
