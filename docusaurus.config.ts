@@ -17,6 +17,21 @@ const config: Config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
+  plugins: [
+    function suppressVscodeLanguageServerWarning() {
+      return {
+        name: 'suppress-vscode-languageserver-types-warning',
+        configureWebpack() {
+          return {
+            ignoreWarnings: [
+              { module: /vscode-languageserver-types/ },
+            ],
+          };
+        },
+      };
+    },
+  ],
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],

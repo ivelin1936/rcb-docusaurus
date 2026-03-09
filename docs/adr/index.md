@@ -83,7 +83,7 @@ Proposed → Accepted → Deprecated
 
 ## Creating a New ADR
 
-1. Copy the template: [`_template.md`](./_template.md)
+1. Copy the template: [`adr-template.md`](./adr-template)
 2. Name the file: `adr-NNN-short-title.md` (next sequential number)
 3. Fill in all sections (Context, Decision Drivers, Considered Options, Decision Outcome, Consequences)
 4. Open a PR against `main` in `rcb-docusaurus`
@@ -96,4 +96,4 @@ Proposed → Accepted → Deprecated
 
 ## ADR Template
 
-→ [docs/adr/_template.md](./_template.md)
+→ [docs/adr/adr-template.md](./adr-template)
