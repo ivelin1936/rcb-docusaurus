@@ -46,6 +46,7 @@ const sidebars: SidebarsConfig = {
         'adr/adr-005-iam-domain-boundary',
         'adr/adr-006-bulgarian-vehicle-apis',
         'adr/adr-007-payment-gateway',
+        'adr/adr-template',
       ],
     },
   ],

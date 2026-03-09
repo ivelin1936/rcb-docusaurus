@@ -1,13 +1,16 @@
 ---
-id: adr-NNN-short-title
-title: "ADR-NNN: Decision Title"
-sidebar_label: "ADR-NNN: Short Label"
-tags: [adr, architecture]
+id: adr-template
+title: ADR Template
+sidebar_label: ADR Template
+tags: [adr, template]
 ---
 
 import { StatusBadge } from '@site/src/components';
 
 # ADR-NNN — Decision Title
+
+> Copy this file to `docs/adr/adr-NNN-short-title.md` and fill in all sections.
+> See the [ADR Index](../adr) for naming conventions and the ADR lifecycle.
 
 | Field | Value |
 |-------|-------|
@@ -116,4 +119,4 @@ Links to docs, RFCs, blog posts, or other ADRs that informed this decision.
 -->
 
 - [Reference 1](https://example.com)
-- Related: [ADR-NNN](./adr-NNN-related-title)
+- Related: ADR-NNN — replace with a link to the related ADR once it exists
