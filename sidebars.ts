@@ -50,6 +50,113 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
+  onboardingSidebar: [
+    {
+      type: 'category',
+      label: 'Onboarding',
+      link: {
+        type: 'doc',
+        id: 'onboarding/onboarding-index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Authentication',
+          link: { type: 'doc', id: 'onboarding/authentication/authentication-index' },
+          items: ['onboarding/authentication/login-logout'],
+        },
+        {
+          type: 'category',
+          label: 'User Profile',
+          link: { type: 'doc', id: 'onboarding/user-profile/user-profile-index' },
+          items: [
+            'onboarding/user-profile/profile-management',
+            'onboarding/user-profile/membership-card',
+            'onboarding/user-profile/push-notifications',
+            'onboarding/user-profile/contact-form',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Content & Discovery',
+          link: { type: 'doc', id: 'onboarding/content/content-index' },
+          items: [
+            'onboarding/content/news',
+            'onboarding/content/gallery',
+            'onboarding/content/campaigns',
+            'onboarding/content/partners',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Events',
+          link: { type: 'doc', id: 'onboarding/events/events-index' },
+          items: [
+            'onboarding/events/browsing-events',
+            'onboarding/events/applying-to-events',
+            'onboarding/events/event-checkin',
+            'onboarding/events/event-results',
+            'onboarding/events/peer-badge-nominations',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Community',
+          link: { type: 'doc', id: 'onboarding/community/community-index' },
+          items: [
+            'onboarding/community/chat',
+            'onboarding/community/polls',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Garage',
+          link: { type: 'doc', id: 'onboarding/garage/garage-index' },
+          items: [
+            'onboarding/garage/car-management',
+            'onboarding/garage/maintenance-alerts',
+            'onboarding/garage/vehicle-checks',
+            'onboarding/garage/car-ratings',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Rewards & Gamification',
+          link: { type: 'doc', id: 'onboarding/rewards-gamification/rewards-index' },
+          items: [
+            'onboarding/rewards-gamification/points-and-currency',
+            'onboarding/rewards-gamification/ranks-and-levels',
+            'onboarding/rewards-gamification/achievement-badges',
+            'onboarding/rewards-gamification/peer-badges',
+            'onboarding/rewards-gamification/leaderboards',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Admin Guide',
+          link: { type: 'doc', id: 'onboarding/admin/admin-index' },
+          items: [
+            'onboarding/admin/user-management',
+            'onboarding/admin/member-lifecycle',
+            'onboarding/admin/event-management',
+            'onboarding/admin/event-checkin-admin',
+            'onboarding/admin/news-management',
+            'onboarding/admin/gallery-management',
+            'onboarding/admin/campaign-management',
+            'onboarding/admin/partners-management',
+            'onboarding/admin/chat-moderation',
+            'onboarding/admin/polls-management',
+            'onboarding/admin/membership-cards',
+            'onboarding/admin/reward-config',
+            'onboarding/admin/feature-flags',
+            'onboarding/admin/dashboard-metrics',
+            'onboarding/admin/job-execution-logs',
+          ],
+        },
+      ],
+    },
+  ],
+
   deploymentSidebar: [
     {
       type: 'category',

@@ -84,6 +84,12 @@ const config: Config = {
           label: 'Deployment',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'onboardingSidebar',
+          position: 'left',
+          label: 'Onboarding',
+        },
+        {
           href: 'https://github.com/ivelin1936/Renault-Club-Bulgaria',
           label: 'BE Repo',
           position: 'right',
