@@ -13,6 +13,9 @@ Step-by-step guides for setting up and working with the Renault Club Bulgaria pl
 |-------|-------------|
 | [BE Setup](./be-setup) | Spring Boot 3.5.x backend — clone, configure, Docker Compose, run locally |
 | [FE Setup](./fe-setup) | React 19 frontend — clone, install, environment variables, run locally |
+| [Performance Testing](./performance-testing) | Gatling load tests (BE) and Lighthouse CI (FE) — how to run, thresholds, reports |
+| [E2E Testing](./e2e-testing) | Playwright end-to-end tests — setup, auth fixture, running locally and in CI |
+| [Monitoring](./monitoring) | Prometheus, Grafana, Loki, Alertmanager, Sentry — full observability stack guide |
 
 ---
 
