@@ -22,9 +22,9 @@ flowchart TD
     C -- Create room --> D[POST /api/v1/admin/chat/rooms\nslug, name, topic]
     C -- Update room --> E[PATCH /api/v1/admin/chat/rooms/:roomId]
     C -- Delete message --> F[DELETE /api/v1/admin/chat/messages/:messageId\nsoft-delete: isDeleted=true]
-    F --> G[Broadcast MESSAGE_DELETED event\nto /topic/chat.{roomSlug}]
+    F --> G[Broadcast MESSAGE_DELETED event\nto /topic/chat.:roomSlug]
     G --> H[Connected clients remove message in real time]
-    C -- Ban user --> I[POST /api/v1/admin/chat/bans\n{ userId, reason }]
+    C -- Ban user --> I["POST /api/v1/admin/chat/bans\nuserId, reason"]
     I --> J[ChatBanEntity created\nUser cannot send or receive]
     C -- Lift ban --> K[DELETE /api/v1/admin/chat/bans/:userId]
 ```
