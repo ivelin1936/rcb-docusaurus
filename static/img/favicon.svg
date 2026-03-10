@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Dark background -->
+  <rect width="32" height="32" rx="4" fill="#1a1a1a"/>
+  <!-- Renault diamond — outer (yellow) -->
+  <polygon points="16,2 30,16 16,30 2,16" fill="#fcd434"/>
+  <!-- Renault diamond — inner cutout -->
+  <polygon points="16,9 23,16 16,23 9,16" fill="#1a1a1a"/>
+</svg>

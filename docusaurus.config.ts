@@ -5,7 +5,14 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Renault Club Bulgaria',
   tagline: 'Technical Documentation — BE · FE · Architecture',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: { rel: 'icon', type: 'image/svg+xml', href: '/rcb-docusaurus/img/favicon.svg' },
+    },
+  ],
 
   url: 'https://ivelin1936.github.io',
   baseUrl: '/rcb-docusaurus/',
