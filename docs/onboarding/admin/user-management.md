@@ -23,7 +23,7 @@ flowchart TD
     D -- Lock account --> E[POST /api/v1/users/:id/lock\nKeycloak session revoked]
     D -- Unlock account --> F[POST /api/v1/users/:id/unlock]
     D -- Delete user --> G[DELETE /api/v1/users/:id\nSoft-delete: deletedAt timestamp set]
-    D -- Assign role --> H[PATCH /api/v1/users/:id/roles\n{ roles: [ROLE_MODERATOR, ...] }]
+    D -- Assign role --> H["PATCH /api/v1/users/:id/roles\nroles: ROLE_MODERATOR, ..."]
     D -- View detail --> I[GET /api/v1/users/:id\nFull profile + suspension history]
     E --> J[IamService logs to AuditLogEntity\nactor, action, userId, IP, timestamp]
     H --> J

@@ -19,7 +19,7 @@ Admins issue, manage, and revoke digital membership cards for club members. Each
 flowchart TD
     A[Admin visits /admin/memberships] --> B[List all membership cards\nGET /api/v1/memberships]
     B --> C{Action}
-    C -- Issue card --> D[POST /api/v1/memberships/issue\n{ userId, tier, expiresAt }]
+    C -- Issue card --> D["POST /api/v1/memberships/issue\nuserId, tier, expiresAt"]
     D --> E[MembershipCardEntity created\nrandom UUID token assigned]
     C -- Update card --> F[PATCH /api/v1/memberships/:cardId\ntier or expiresAt]
     C -- Revoke card --> G[DELETE /api/v1/memberships/:cardId\nrevokedAt timestamp set]
